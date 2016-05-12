@@ -10,7 +10,7 @@ int main(){
    scanf("%f",&a);
    printf("\nVvedite n");
    scanf("%d",&n);
-   P=1;
+   P=1; 
    i=1;
    while (i<n) {
        P=P*(a-i*n);
