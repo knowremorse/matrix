@@ -3,7 +3,7 @@
  * элемент с наименьшим значением. Предполагается,
  * что такой элемент единственный. */
 
-#include <stdio.h>
+#include <stdio.h> 
 #include <conio.h>
 
 #define N 3
