@@ -13,7 +13,7 @@ int main(){
    P=1; 
    i=1;
    while (i<n) {
-       P=P*(a-i*n);
+       P=P*(a-i*n); 
        i++;
    }
 
