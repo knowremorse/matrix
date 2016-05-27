@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+#define n 6
+
+
+
+
+
+int main()
+{
+    struct album {
+        char group[50];
+        char title[50];
+        int year;
+        int count;
+    } aMax;
+   int i,j;
+   struct album a[n]={
+   {"Pink Floyd","The Wall",1979},
+   {"Pink Floyd","Animals",1977},
+   {"Pink Floyd","The Final Cut",1983},
+   {"Pink Floyd","Atom Heart Mother",1970},
+   {"Pink Floyd","Music from the Film More",1969},
+   {"Pink Floyd","The Wall",1979}
+};
+
+   printf("   Group                           Album          Year\n");
+           printf("------------------------------------------------------");
+    for (i=0;i<n;i++) {
+        printf("\n%5s%30s%14d",a[i].group,a[i].title,a[i].year);
+    }
+for (i=0;i<n;i++) {
+    for (j=0;j<n+1;j++) {
+//        if (a[i].group == a[j].group) {
+//            a[i].count++;
+////            break;
+//        }
+        if (strcmp(a[i].title,a[j].title) == 0) {
+            a[i].count++;
+        }
+
+
+
+    }
+}
+//for (i=0;i<n;i++) {
+//    printf("\n%14d",a[i].count);
+//}
+//struct album aMax;
+aMax=a[0];
+    for (i=0;i<n;i++) {
+        if (a[i].count > aMax.count){
+            aMax=a[i];
+        }
+    }
+    printf("\n\nMost release album is %s",aMax.title);
+
+
+    return 0;
+}
