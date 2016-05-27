@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define n 3
+#define m 4
+
+
+
+int main()
+{
+    // Исходная матрица
+    int aMatrix[3][4] = {
+        {1, 1, 1, 1},
+        {3, 3, 3, 3},
+        {2, 2, 2, 2}
+    };
+    int i,j,z;
+    // Массив для суммы строк
+    int aSum[n] = {0, 0, 0};
+    // Вспомогательный массив для сортировки строк
+    int aTemp[m];
+
+    for (i = 0; i < n; i ++)
+    {
+        for (j = 0; j < m; j ++)
+        {
+            // Записываем суммы строк матрицы aMatrix в массив aSum
+            aSum[i] += aMatrix[i][j];
+        }
+    }
+
+    for (i = 0; i < n; i ++)
+    {
+        for (j = i + 1; j < n; j ++)
+        {
+            // Проверяем какая из суммы больше
+            if (aSum[i] > aSum[j])
+            {
+                // Сортируем массив aSum в порядке возрастания его элементов
+                int nTemp = aSum[j];
+                aSum[j] = aSum[i];
+                aSum[i] = nTemp;
+
+                for (z = 0; z < m; z ++)
+                {
+                    // Сортируем строки в матрице aMatrix в порядке возрастания их суммы
+                    aTemp[z] = aMatrix[j][z];
+                    aMatrix[j][z] = aMatrix[i][z];
+                    aMatrix[i][z] = aTemp[z];
+                }
+            }
+        }
+    };
+
+
+
+    for (i=0;i<n;i++){
+        for (j=0;j<m;j++){
+            printf("%d",aMatrix[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    return 0;
+}
